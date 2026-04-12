@@ -1,19 +1,44 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import WhyChooseUsSection from "@/components/WhyChooseUsSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "A.T Farms and Fields — Premium Agritech Solutions" },
+      {
+        name: "description",
+        content:
+          "A.T Farms and Fields Limited provides agricultural management, crop & livestock production, and export sourcing services across Nigeria.",
+      },
+      { property: "og:title", content: "A.T Farms and Fields — Premium Agritech Solutions" },
+      {
+        property: "og:description",
+        content:
+          "Offering proactive agricultural solutions — management, production, and export services.",
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
-  );
-}
-
 function Index() {
-  return <PlaceholderIndex />;
+  return (
+    <main>
+      <Navbar />
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <WhyChooseUsSection />
+      <ProjectsSection />
+      <ContactSection />
+      <Footer />
+    </main>
+  );
 }
