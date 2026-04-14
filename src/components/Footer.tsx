@@ -1,43 +1,47 @@
+import { Globe, Camera, Briefcase } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
-const links = [
+const quickLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-primary-foreground py-16">
-      <div className="mx-auto max-w-7xl px-6">
+    <footer className="bg-brand-green-dark text-primary-foreground py-16">
+      <div className="mx-auto max-w-[1200px] px-[clamp(1rem,5vw,2rem)]">
         <div className="grid gap-12 md:grid-cols-3">
-          {/* Brand */}
+          {/* Column 1: Brand */}
           <div>
             <div className="flex items-center gap-2">
-              <img src={logo} alt="A.T Farms logo" className="h-10 w-10 rounded-full object-cover" />
-              <span className="font-heading text-lg font-bold">
-                A.T Farms & Fields
+              <img src={logo} alt="A.T Farms logo" className="h-12 w-12 rounded-full object-cover" />
+              <span className="font-heading text-lg font-bold text-primary-foreground">
+                A.T Farms &amp; Fields
               </span>
             </div>
-            <p className="mt-4 text-sm text-primary-foreground/60 leading-relaxed max-w-xs">
+            <p className="mt-2 text-xs uppercase tracking-wider text-primary-foreground/60">
+              Offering Proactive Agricultural Solutions
+            </p>
+            <p className="mt-4 text-sm text-primary-foreground/75 leading-relaxed max-w-xs">
               A premium agricultural and livestock enterprise delivering
-              sustainable growth and long-term food security.
+              sustainable growth and long-term food security across Nigeria.
             </p>
           </div>
 
-          {/* Quick links */}
+          {/* Column 2: Quick Links */}
           <div>
-            <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-primary-foreground/40">
-              Quick links
+            <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-primary-foreground/50">
+              Quick Links
             </h4>
             <ul className="mt-4 flex flex-col gap-3">
-              {links.map((link) => (
+              {quickLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+                    className="text-sm text-primary-foreground/75 hover:text-primary-foreground transition-colors"
                   >
                     {link.label}
                   </a>
@@ -46,43 +50,43 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social / contact */}
+          {/* Column 3: Connect */}
           <div>
-            <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-primary-foreground/40">
-              Connect with us
+            <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-primary-foreground/50">
+              Connect With Us
             </h4>
             <ul className="mt-4 flex flex-col gap-3">
               <li>
-                <a
-                  href="https://wa.me/2348000000000"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-                >
-                  WhatsApp
+                <a href="mailto:info@atfarmsandfields.com" className="text-sm text-primary-foreground/75 hover:text-primary-foreground transition-colors">
+                  info@atfarmsandfields.com
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  Instagram
-                </a>
+                <p className="text-sm text-primary-foreground/75">+234 800 000 0000</p>
               </li>
               <li>
-                <a href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  LinkedIn
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                  Twitter / X
-                </a>
+                <p className="text-sm text-primary-foreground/75">Ogun State, Nigeria</p>
               </li>
             </ul>
+            {/* Social icons */}
+            <div className="mt-6 flex gap-4">
+              {[Globe, Camera, Briefcase].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
+                  aria-label="Social link"
+                >
+                  <Icon size={20} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-primary-foreground/10 pt-8 text-center">
-          <p className="text-xs text-primary-foreground/40">
+        {/* Bottom bar */}
+        <div className="mt-12 border-t border-primary-foreground/15 pt-6 text-center">
+          <p className="text-xs text-primary-foreground/50">
             © {new Date().getFullYear()} A.T Farms and Fields Limited. All rights reserved.
           </p>
         </div>

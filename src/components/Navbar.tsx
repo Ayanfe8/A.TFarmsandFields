@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
@@ -7,7 +6,8 @@ const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
+  { label: "Why Us", href: "#why-us" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -15,8 +15,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
+      <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-[clamp(1rem,5vw,2rem)] py-3">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2">
           <img src={logo} alt="A.T Farms logo" className="h-10 w-10 rounded-full object-cover" />
@@ -42,9 +42,9 @@ export default function Navbar() {
         {/* CTA */}
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors"
+          className="hidden md:inline-flex items-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-brand-green-dark transition-colors"
         >
-          Get started
+          Get In Touch
         </a>
 
         {/* Mobile toggle */}
@@ -52,6 +52,7 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           className="md:hidden text-foreground"
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -78,7 +79,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="inline-flex w-full justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground"
               >
-                Get started
+                Get In Touch
               </a>
             </li>
           </ul>
