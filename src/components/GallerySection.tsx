@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import gallery1 from "@/assets/gallery-1.jpg";
 import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
@@ -16,10 +18,26 @@ const images = [
 ];
 
 export default function GallerySection() {
+  const [active, setActive] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (active === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActive(null);
+      if (e.key === "ArrowRight") setActive((i) => (i === null ? null : (i + 1) % images.length));
+      if (e.key === "ArrowLeft") setActive((i) => (i === null ? null : (i - 1 + images.length) % images.length));
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [active]);
+
   return (
     <section id="gallery" className="bg-background" style={{ padding: 'clamp(3rem,8vw,6rem) 0' }}>
       <div className="mx-auto max-w-[1200px] px-[clamp(1rem,5vw,2rem)]">
-        {/* Section header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
             See Our Work
@@ -29,16 +47,18 @@ export default function GallerySection() {
           </h2>
         </div>
 
-        {/* CSS columns masonry layout */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
           {images.map((img, i) => (
-            <motion.div
+            <motion.button
+              type="button"
+              onClick={() => setActive(i)}
               key={i}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative mb-4 break-inside-avoid overflow-hidden rounded-lg"
+              className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-ring"
+              aria-label={`Open image: ${img.alt}`}
             >
               <img
                 src={img.src}
@@ -46,12 +66,62 @@ export default function GallerySection() {
                 loading="lazy"
                 className="block w-full rounded-lg transition-transform duration-300 group-hover:scale-105"
               />
-              {/* Hover overlay */}
               <div className="absolute inset-0 bg-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {active !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
+            onClick={() => setActive(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Image viewer"
+          >
+            <button
+              onClick={(e) => { e.stopPropagation(); setActive(null); }}
+              aria-label="Close"
+              className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            >
+              <X size={20} />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); setActive((i) => (i === null ? null : (i - 1 + images.length) % images.length)); }}
+              aria-label="Previous image"
+              className="absolute left-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            >
+              <ChevronLeft size={22} />
+            </button>
+            <motion.img
+              key={active}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.2 }}
+              src={images[active].src}
+              alt={images[active].alt}
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[85vh] max-w-[92vw] rounded-lg object-contain"
+            />
+            <button
+              onClick={(e) => { e.stopPropagation(); setActive((i) => (i === null ? null : (i + 1) % images.length)); }}
+              aria-label="Next image"
+              className="absolute right-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+            >
+              <ChevronRight size={22} />
+            </button>
+            <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-white/75">
+              {active + 1} / {images.length}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

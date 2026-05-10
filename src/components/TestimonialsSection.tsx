@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
@@ -22,11 +23,26 @@ const testimonials = [
   },
 ];
 
+const AUTO_MS = 6000;
+
 export default function TestimonialsSection() {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % testimonials.length);
+    }, AUTO_MS);
+    return () => clearInterval(id);
+  }, [paused]);
+
+  const go = (next: number) => setIndex((next + testimonials.length) % testimonials.length);
+  const t = testimonials[index];
+
   return (
     <section id="testimonials" className="bg-secondary" style={{ padding: 'clamp(3rem,8vw,6rem) 0' }}>
       <div className="mx-auto max-w-[1200px] px-[clamp(1rem,5vw,2rem)]">
-        {/* Section header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
             Testimonials
@@ -36,28 +52,67 @@ export default function TestimonialsSection() {
           </h2>
         </div>
 
-        {/* Testimonial cards */}
-        <div className="grid gap-8 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-2xl bg-card p-8 border-l-4 border-primary"
+        <div
+          className="relative max-w-3xl mx-auto"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          aria-roledescription="carousel"
+        >
+          <div className="relative min-h-[280px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.4 }}
+                className="rounded-2xl bg-card p-8 md:p-10 border-l-4 border-primary"
+                style={{ boxShadow: 'var(--shadow-md)' }}
+              >
+                <Quote size={28} className="text-primary/30 mb-4" />
+                <p className="text-lg md:text-xl italic leading-relaxed text-accent-foreground">
+                  "{t.quote}"
+                </p>
+                <div className="mt-6">
+                  <p className="font-heading font-bold text-foreground">{t.name}</p>
+                  <p className="text-sm text-muted-foreground">{t.role}</p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className="mt-8 flex items-center justify-center gap-6">
+            <button
+              onClick={() => go(index - 1)}
+              aria-label="Previous testimonial"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
               style={{ boxShadow: 'var(--shadow-md)' }}
             >
-              <Quote size={24} className="text-primary/30 mb-4" />
-              <p className="text-lg italic leading-relaxed text-accent-foreground">
-                "{t.quote}"
-              </p>
-              <div className="mt-6">
-                <p className="font-heading font-bold text-foreground">{t.name}</p>
-                <p className="text-sm text-muted-foreground">{t.role}</p>
-              </div>
-            </motion.div>
-          ))}
+              <ChevronLeft size={18} />
+            </button>
+
+            <div className="flex gap-2" role="tablist">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIndex(i)}
+                  role="tab"
+                  aria-selected={i === index}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  className={`h-2.5 rounded-full transition-all ${i === index ? 'w-8 bg-primary' : 'w-2.5 bg-primary/30 hover:bg-primary/50'}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={() => go(index + 1)}
+              aria-label="Next testimonial"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-card text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+              style={{ boxShadow: 'var(--shadow-md)' }}
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
         </div>
       </div>
     </section>
