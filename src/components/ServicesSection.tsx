@@ -66,7 +66,7 @@ export default function ServicesSection() {
         </div>
 
         {/* 3-col grid on desktop, 2 on tablet, 1 on mobile */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <motion.div
               key={service.title}

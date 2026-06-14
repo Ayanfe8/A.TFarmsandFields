@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -19,11 +19,28 @@ const images = [
 
 export default function GallerySection() {
   const [active, setActive] = useState<number | null>(null);
+  const triggerRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const triggerIndexRef = useRef<number | null>(null);
+
+  const openAt = (i: number) => {
+    triggerIndexRef.current = i;
+    setActive(i);
+  };
+
+  const close = () => setActive(null);
 
   useEffect(() => {
-    if (active === null) return;
+    if (active === null) {
+      // Return focus to the trigger that opened the lightbox
+      const idx = triggerIndexRef.current;
+      if (idx !== null) {
+        triggerRefs.current[idx]?.focus();
+        triggerIndexRef.current = null;
+      }
+      return;
+    }
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setActive(null);
+      if (e.key === "Escape") close();
       if (e.key === "ArrowRight") setActive((i) => (i === null ? null : (i + 1) % images.length));
       if (e.key === "ArrowLeft") setActive((i) => (i === null ? null : (i - 1 + images.length) % images.length));
     };
@@ -50,14 +67,15 @@ export default function GallerySection() {
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
           {images.map((img, i) => (
             <motion.button
+              ref={(el) => { triggerRefs.current[i] = el; }}
               type="button"
-              onClick={() => setActive(i)}
+              onClick={() => openAt(i)}
               key={i}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-ring"
+              className="group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-lg cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               aria-label={`Open image: ${img.alt}`}
             >
               <img

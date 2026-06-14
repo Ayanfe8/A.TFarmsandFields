@@ -39,7 +39,7 @@ export default function WhyChooseUsSection() {
         </div>
 
         {/* 4-col grid, 2 on tablet, 1 on mobile — open layout, no card borders */}
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-8 grid-cols-2 lg:grid-cols-4">
           {reasons.map((reason, i) => (
             <motion.div
               key={reason.title}
