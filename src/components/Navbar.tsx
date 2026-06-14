@@ -30,23 +30,23 @@ export default function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a href={link.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
+              <a href={link.href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded">
                 {link.label}
               </a>
             </li>
           ))}
         </ul>
 
-        <a href="#contact" className="hidden md:inline-flex items-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-brand-green-dark transition-colors">
+        <a href="#contact" className="hidden lg:inline-flex items-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-brand-green-dark transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
           Get In Touch
         </a>
 
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-foreground relative z-[60]"
+          className="lg:hidden text-foreground relative z-[60] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded p-1"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
@@ -62,7 +62,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden fixed inset-0 z-50 bg-background"
+            className="lg:hidden fixed inset-0 z-50 bg-background"
           >
             <div className="flex h-full flex-col items-center justify-center gap-2 px-6">
               <ul className="flex flex-col items-center gap-6">

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
+import { usePrefersReducedMotion } from "@/hooks/use-reduced-motion";
 
 const testimonials = [
   {
@@ -28,14 +29,15 @@ const AUTO_MS = 6000;
 export default function TestimonialsSection() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
-    if (paused) return;
+    if (paused || reduced) return;
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % testimonials.length);
     }, AUTO_MS);
     return () => clearInterval(id);
-  }, [paused]);
+  }, [paused, reduced]);
 
   const go = (next: number) => setIndex((next + testimonials.length) % testimonials.length);
   const t = testimonials[index];
