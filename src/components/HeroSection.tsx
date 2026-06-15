@@ -16,6 +16,8 @@ export default function HeroSection() {
           className="h-full w-full object-cover"
           width={1920}
           height={1080}
+          loading="eager"
+          fetchPriority="high"
         />
         {/* SPEC: overlay-hero rgba(20,92,56,0.65) */}
         <div className="absolute inset-0" style={{ background: 'var(--overlay-hero)' }} />

@@ -10,26 +10,34 @@ import GallerySection from "@/components/GallerySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import heroImg from "@/assets/hero-farm.jpg";
+
+const SITE_URL = "https://atfarmsandfields.com";
+const TITLE = "A.T Farms and Fields Limited — Agricultural Solutions in Nigeria";
+const DESCRIPTION =
+  "Premium crop farming, livestock production, forestry, and farm management services in Ogun State and Southwest Nigeria.";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "A.T Farms and Fields Limited — Agricultural Solutions in Nigeria" },
-      {
-        name: "description",
-        content:
-          "Premium crop farming, livestock production, forestry, and farm management services in Ogun State and Southwest Nigeria.",
-      },
-      { property: "og:title", content: "A.T Farms and Fields Limited — Agricultural Solutions in Nigeria" },
-      {
-        property: "og:description",
-        content:
-          "Premium crop farming, livestock production, forestry, and farm management services in Ogun State and Southwest Nigeria.",
-      },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { name: "robots", content: "index, follow" },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: `${SITE_URL}${heroImg}` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: `${SITE_URL}${heroImg}` },
     ],
+    links: [{ rel: "canonical", href: SITE_URL }],
   }),
 });
+
 
 function Index() {
   return (

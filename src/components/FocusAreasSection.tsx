@@ -52,6 +52,8 @@ export default function FocusAreasSection() {
                 src={area.image}
                 alt={area.title}
                 loading="lazy"
+                width={800}
+                height={600}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               {/* Overlay */}

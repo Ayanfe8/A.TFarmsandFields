@@ -82,6 +82,8 @@ export default function GallerySection() {
                 src={img.src}
                 alt={img.alt}
                 loading="lazy"
+                width={800}
+                height={600}
                 className="block w-full rounded-lg transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-primary/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />

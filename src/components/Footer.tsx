@@ -17,7 +17,7 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div>
             <div className="flex items-center gap-2">
-              <img src={logo} alt="A.T Farms logo" className="h-12 w-12 rounded-full object-cover" />
+              <img src={logo} alt="A.T Farms logo" width={48} height={48} loading="lazy" className="h-12 w-12 rounded-full object-cover" />
               <span className="font-heading text-lg font-bold text-primary-foreground">
                 A.T Farms &amp; Fields
               </span>
