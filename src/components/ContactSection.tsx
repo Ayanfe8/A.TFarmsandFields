@@ -30,18 +30,21 @@ type Errors = Partial<Record<keyof z.infer<typeof schema>, string>>;
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [errors, setErrors] = useState<Errors>({});
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
-    const result = schema.safeParse({
-      name: fd.get("name"),
-      email: fd.get("email"),
-      phone: fd.get("phone") ?? "",
-      subject: fd.get("subject") ?? "",
-      message: fd.get("message"),
-    });
+    const values = {
+      name: String(fd.get("name") ?? ""),
+      email: String(fd.get("email") ?? ""),
+      phone: String(fd.get("phone") ?? ""),
+      subject: String(fd.get("subject") ?? ""),
+      message: String(fd.get("message") ?? ""),
+    };
+    const result = schema.safeParse(values);
     if (!result.success) {
       const next: Errors = {};
       for (const issue of result.error.issues) {
@@ -52,7 +55,26 @@ export default function ContactSection() {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "6ae5d473-1ffb-438d-ab07-0a54a910a269",
+          ...values,
+          botcheck: "",
+        }),
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || !json?.success) throw new Error("submit failed");
+      setSubmitted(true);
+    } catch {
+      setSubmitError("Something went wrong. Please try again or email us directly at ayanfe4greatness@gmail.com");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   const inputBase =
@@ -127,7 +149,7 @@ export default function ContactSection() {
                 <div>
                   <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-secondary text-primary"><Send size={24} /></div>
                   <h3 className="mt-4 font-heading text-xl font-semibold text-foreground">Enquiry sent!</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                  <p className="mt-2 text-sm text-muted-foreground">Thank you for reaching out. We will get back to you within 24 hours.</p>
                 </div>
               </div>
             ) : (
@@ -176,8 +198,13 @@ export default function ContactSection() {
                       className={`${fieldClass("message")} resize-none`} />
                     <ErrorMsg id="message-err" msg={errors.message} />
                   </div>
-                  <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-brand-green-dark transition-colors w-full sm:w-auto">
-                    Send Enquiry <Send size={16} />
+                  {submitError && (
+                    <p role="alert" className="flex items-center gap-1.5 text-sm text-destructive">
+                      <AlertCircle size={14} /> {submitError}
+                    </p>
+                  )}
+                  <button type="submit" disabled={submitting} className="inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-brand-green-dark transition-colors w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed">
+                    {submitting ? "Sending..." : (<>Send Enquiry <Send size={16} /></>)}
                   </button>
                 </div>
               </form>
