@@ -118,7 +118,7 @@ export default function Navbar() {
                 transition={{ delay: 0.1 + navLinks.length * 0.05 }}
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="mt-4 inline-flex w-full max-w-xs items-center justify-center rounded-lg bg-primary px-8 py-4 text-base font-semibold text-white shadow-lg active:bg-brand-green-dark"
+                className="mt-4 inline-flex w-full max-w-xs items-center justify-center rounded-lg bg-white px-8 py-4 text-base font-semibold text-primary shadow-lg active:bg-white/90"
               >
                 Get In Touch
               </motion.a>
