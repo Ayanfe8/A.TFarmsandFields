@@ -25,7 +25,7 @@ export default function Navbar() {
       <header className="fixed top-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-b border-border">
         <nav className="mx-auto flex max-w-[1200px] items-center justify-between px-[clamp(1rem,5vw,2rem)] py-3">
           <a href="#home" className="flex items-center gap-2">
-            <img src={logo} alt="A.T Farms logo" className="h-10 w-10 rounded-full object-cover" />
+            <img src={logo} alt="A.T Farms logo" width={40} height={40} loading="eager" className="h-10 w-10 rounded-full object-cover" />
             <span className="font-heading text-lg font-bold text-foreground tracking-tight">
               A.T Farms <span className="text-primary">&amp; Fields</span>
             </span>
@@ -77,7 +77,7 @@ export default function Navbar() {
             {/* Top bar — matches nav height */}
             <div className="flex items-center justify-between px-[clamp(1rem,5vw,2rem)] py-3 border-b border-white/10">
               <a href="#home" onClick={() => setOpen(false)} className="flex items-center gap-2">
-                <img src={logo} alt="A.T Farms logo" className="h-10 w-10 rounded-full object-cover" />
+                <img src={logo} alt="A.T Farms logo" width={40} height={40} loading="lazy" className="h-10 w-10 rounded-full object-cover" />
                 <span className="font-heading text-lg font-bold text-white tracking-tight">
                   A.T Farms &amp; Fields
                 </span>
