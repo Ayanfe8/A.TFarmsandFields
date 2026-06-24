@@ -59,6 +59,7 @@ export default function TestimonialsSection() {
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           aria-roledescription="carousel"
+          aria-live="polite"
         >
           <div className="relative min-h-[280px]">
             <AnimatePresence mode="wait">

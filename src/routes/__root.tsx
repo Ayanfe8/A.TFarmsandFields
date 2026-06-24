@@ -53,8 +53,27 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <style>{`
+          .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 0 0 0.5rem 0;
+            text-decoration: none;
+            z-index: 100;
+            font-weight: 600;
+            font-size: 0.875rem;
+          }
+          .skip-link:focus {
+            top: 0;
+          }
+        `}</style>
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         {children}
         <Scripts />
       </body>

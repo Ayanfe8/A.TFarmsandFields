@@ -23,7 +23,7 @@ const areas = [
 
 export default function FocusAreasSection() {
   return (
-    <section className="bg-background" style={{ padding: 'clamp(3rem,8vw,6rem) 0' }}>
+    <section id="focus" className="bg-background" style={{ padding: 'clamp(3rem,8vw,6rem) 0' }}>
       <div className="mx-auto max-w-[1200px] px-[clamp(1rem,5vw,2rem)]">
         {/* Section header */}
         <div className="text-center max-w-2xl mx-auto mb-16">

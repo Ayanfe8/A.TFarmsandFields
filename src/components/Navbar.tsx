@@ -20,6 +20,17 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [open]);
 
+  useEffect(() => {
+    if (!open) return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [open]);
+
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-b border-border">
@@ -49,7 +60,7 @@ export default function Navbar() {
             onClick={() => setOpen((v) => !v)}
             className="lg:hidden text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded p-1"
             aria-label="Open menu"
-            aria-expanded={false}
+            aria-expanded={open}
           >
             <Menu size={26} />
           </button>

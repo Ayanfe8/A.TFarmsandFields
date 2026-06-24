@@ -136,8 +136,8 @@ export default function GallerySection() {
             >
               <ChevronRight size={22} />
             </button>
-            <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-white/75">
-              {active + 1} / {images.length}
+            <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-sm text-white/75" aria-live="polite">
+              Image {active + 1} of {images.length}
             </p>
           </motion.div>
         )}
