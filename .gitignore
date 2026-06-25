@@ -30,3 +30,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+*.docx
+commit-list.txt
+CLAUDE.md
+package-lock.json
