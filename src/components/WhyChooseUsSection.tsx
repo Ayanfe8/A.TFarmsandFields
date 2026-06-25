@@ -5,12 +5,12 @@ const reasons = [
   {
     icon: MapPin,
     title: "Southwest Nigeria Expertise",
-    description: "Deep roots in Ogun State with operations across Southwest Nigeria.",
+    description: "Deep and diverse roots across agricultural operations in Nigeria.",
   },
   {
     icon: Layers,
     title: "End-to-End Solutions",
-    description: "From farm management to international export, we handle the full agricultural value chain.",
+    description: "From farm management to international export, we handle the full agricultural value chain, offering proative technological solutions.",
   },
   {
     icon: Leaf,
