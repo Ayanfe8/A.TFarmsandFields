@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import {
-  Beef, Wheat, Layers, Ship, Building2, Droplet, BookOpen, TreePine, TrendingUp, Cpu,
+  PawPrint, Wheat, Layers, Ship, Building2, Droplet, BookOpen, TreePine, TrendingUp, Cpu, UtensilsCrossed,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Beef,
+    icon: PawPrint,
     title: "Livestock Production",
     description:
       "We engage in sustainable livestock farming, including cattle, sheep, and poultry, with a focus on productivity, animal health, and modern management practices.",
@@ -63,6 +63,12 @@ const services = [
     title: "Technological Solutions",
     description:
       "We leverage digital tools, data, and innovative technologies to improve farm operations, monitoring, and decision-making, including mobile extension services, farm management systems, and smart agriculture solutions.",
+  },
+  {
+    icon: UtensilsCrossed,
+    title: "Food Processing & Production",
+    description:
+      "Increasing local food nutrition through fortification and enrichment.",
   },
 ];
 

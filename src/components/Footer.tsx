@@ -57,12 +57,12 @@ export default function Footer() {
             </h4>
             <ul className="mt-4 flex flex-col gap-3">
               <li>
-                <a href="mailto:info@atfarmsandfields.com" className="text-sm text-primary-foreground/75 hover:text-primary-foreground transition-colors">
-                  info@atfarmsandfields.com
+                <a href="mailto:atfarmsfields.agricsolutions@gmail.com" className="text-sm text-primary-foreground/75 hover:text-primary-foreground transition-colors">
+                  atfarmsfields.agricsolutions@gmail.com
                 </a>
               </li>
               <li>
-                <p className="text-sm text-primary-foreground/75">+234 800 000 0000</p>
+                <p className="text-sm text-primary-foreground/75">08023726675</p>
               </li>
               <li>
                 <p className="text-sm text-primary-foreground/75">Ogun State, Nigeria</p>

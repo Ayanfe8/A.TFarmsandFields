@@ -113,14 +113,14 @@ export default function ContactSection() {
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-primary"><Mail size={18} /></div>
               <div>
                 <p className="text-sm font-medium text-foreground">Email</p>
-                <p className="text-sm text-muted-foreground">info@atfarmsandfields.com</p>
+                <p className="text-sm text-muted-foreground">atfarmsfields.agricsolutions@gmail.com</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-primary"><Phone size={18} /></div>
               <div>
                 <p className="text-sm font-medium text-foreground">Phone</p>
-                <p className="text-sm text-muted-foreground">+234 800 000 0000</p>
+                <p className="text-sm text-muted-foreground">08023726675</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
