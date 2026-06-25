@@ -1,4 +1,4 @@
-import { Globe, Camera, Briefcase } from "lucide-react";
+import { FaInstagram, FaFacebookF, FaTiktok, FaXTwitter } from 'react-icons/fa6';
 import logo from "@/assets/logo.jpg";
 
 const quickLinks = [
@@ -70,16 +70,42 @@ export default function Footer() {
             </ul>
             {/* Social icons */}
             <div className="mt-6 flex gap-4">
-              {[Globe, Camera, Briefcase].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
-                  aria-label="Social link"
-                >
-                  <Icon size={20} />
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/at_farms_fields?igsh=MnJyNGpwbTEwZ2E5X"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
+                aria-label="Follow us on Instagram"
+              >
+                <FaInstagram size={20} />
+              </a>
+              <a
+                href="https://x.com/at_farms_fields?s=21&t=2r2FYe3OQFhGnI_w3uP2pQ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
+                aria-label="Follow us on Twitter"
+              >
+                <FaXTwitter size={20} />
+              </a>
+              <a
+                href="https://www.facebook.com/share/14ohzHSSvMz/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
+                aria-label="Follow us on Facebook"
+              >
+                <FaFacebookF size={20} />
+              </a>
+              <a
+                href="https://vt.tiktok.com/ZSCNWjguv/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/75 hover:text-primary-foreground transition-colors"
+                aria-label="Follow us on TikTok"
+              >
+                <FaTiktok size={20} />
+              </a>
             </div>
           </div>
         </div>

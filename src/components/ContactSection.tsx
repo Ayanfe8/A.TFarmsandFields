@@ -1,7 +1,8 @@
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { z } from "zod";
-import { Send, Mail, Phone, MapPin, Globe, Camera, Briefcase, AlertCircle } from "lucide-react";
+import { Send, Mail, Phone, MapPin, AlertCircle } from "lucide-react";
+import { FaInstagram, FaFacebookF, FaTiktok, FaXTwitter } from 'react-icons/fa6';
 
 const subjects = [
   "Farm Management Enquiry",
@@ -130,11 +131,18 @@ export default function ContactSection() {
               </div>
             </div>
             <div className="mt-4 flex gap-4">
-              {[Globe, Camera, Briefcase].map((Icon, i) => (
-                <a key={i} href="#" className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="Social link">
-                  <Icon size={18} />
-                </a>
-              ))}
+              <a href="https://www.instagram.com/at_farms_fields?igsh=MnJyNGpwbTEwZ2E5X" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="Follow us on Instagram">
+                <FaInstagram size={18} />
+              </a>
+              <a href="https://x.com/at_farms_fields?s=21&t=2r2FYe3OQFhGnI_w3uP2pQ" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="Follow us on Twitter">
+                <FaXTwitter size={18} />
+              </a>
+              <a href="https://www.facebook.com/share/14ohzHSSvMz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="Follow us on Facebook">
+                <FaFacebookF size={18} />
+              </a>
+              <a href="https://vt.tiktok.com/ZSCNWjguv/" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-secondary text-primary hover:bg-primary hover:text-primary-foreground transition-colors" aria-label="Follow us on TikTok">
+                <FaTiktok size={18} />
+              </a>
             </div>
           </motion.div>
 

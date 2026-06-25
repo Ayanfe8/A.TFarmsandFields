@@ -1,50 +1,68 @@
 import { motion } from "framer-motion";
 import {
-  Wheat, Drumstick, TreePine, Settings, Ship, Building2, BookOpen,
+  Beef, Wheat, Layers, Ship, Building2, Droplet, BookOpen, TreePine, TrendingUp, Cpu,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Wheat,
-    title: "Crop Farming",
-    description:
-      "From land preparation to harvest, we produce high-yield crops including grains, vegetables, and cash crops using modern, sustainable farming techniques.",
-  },
-  {
-    icon: Drumstick,
+    icon: Beef,
     title: "Livestock Production",
     description:
-      "We raise healthy, high-quality livestock — including poultry, cattle, and small ruminants — through ethical practices that prioritise animal welfare and productivity.",
+      "We engage in sustainable livestock farming, including cattle, sheep, and poultry, with a focus on productivity, animal health, and modern management practices.",
   },
   {
-    icon: TreePine,
-    title: "Forestry",
+    icon: Wheat,
+    title: "Crop Production",
     description:
-      "Our forestry operations combine commercial timber production with responsible land stewardship, supporting long-term environmental sustainability and revenue.",
+      "Our crop operations span staple and high-value crops, using improved inputs, proper timing, and efficient farm management to maximize yield and profitability.",
   },
   {
-    icon: Settings,
-    title: "Farm Management",
+    icon: Layers,
+    title: "Farm Management & Development",
     description:
-      "We offer professional farm management services for landowners and investors — handling operations, staffing, inputs, and reporting so your farm runs at peak performance.",
+      "We provide end-to-end farm management services for individuals and investors, including planning, setup, operations, and performance tracking.",
   },
   {
     icon: Ship,
-    title: "Export & Sourcing",
+    title: "Sourcing & Exportation of Agricultural Commodities",
     description:
-      "We connect Nigerian agricultural produce with international buyers, managing quality control, logistics, and documentation for seamless cross-border trade.",
+      "We source quality commodities such as ginger, sesame, and hibiscus, and connect them to local and international markets through structured export channels.",
   },
   {
     icon: Building2,
-    title: "Integrated Farm Estate",
+    title: "Agricultural Estate Development",
     description:
-      "Our integrated farm estate model brings together crop, livestock, and forestry operations on a single landholding — ideal for investors seeking diversified agricultural returns.",
+      "We develop integrated agricultural estates with essential infrastructure, expert support, and shared facilities to enable scalable and profitable farming.",
+  },
+  {
+    icon: Droplet,
+    title: "Hydroponics Farming",
+    description:
+      "We design and implement modern hydroponic systems for efficient, space-saving, and year-round crop production, ideal for homes and commercial use.",
   },
   {
     icon: BookOpen,
-    title: "Consulting & Advisory",
+    title: "Capacity Building & Training",
     description:
-      "Our experienced agronomists and farm advisors provide tailored consulting for individuals, cooperatives, and businesses looking to start, grow, or optimise their agricultural operations.",
+      "We train farmers, agripreneurs, and investors with practical knowledge, extension support, and hands-on guidance to improve productivity and sustainability.",
+  },
+  {
+    icon: TreePine,
+    title: "Forestry & Agroforestry",
+    description:
+      "We promote tree planting and integrated farming systems that support environmental sustainability, long-term income, and climate resilience.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Commodity Trading",
+    description:
+      "We actively participate in the trading of agricultural commodities, ensuring quality supply, market access, and value optimization across the value chain.",
+  },
+  {
+    icon: Cpu,
+    title: "Technological Solutions",
+    description:
+      "We leverage digital tools, data, and innovative technologies to improve farm operations, monitoring, and decision-making, including mobile extension services, farm management systems, and smart agriculture solutions.",
   },
 ];
 
