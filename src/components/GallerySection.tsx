@@ -1,20 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
+import gallery1 from "@/assets/gallery-1.webp";
+import gallery2 from "@/assets/gallery-2.webp";
+import gallery3 from "@/assets/gallery-3.webp";
+import gallery4 from "@/assets/gallery-4.webp";
+import gallery5 from "@/assets/gallery-5.webp";
+import gallery6 from "@/assets/gallery-6.webp";
+import gallery7 from "@/assets/gallery-7.webp";
+import gallery8 from "@/assets/gallery-8.webp";
+import gallery9 from "@/assets/gallery-9.webp";
+import gallery10 from "@/assets/gallery-10.webp";
 
 const images = [
-  { src: gallery1, alt: "Aerial view of farmland with workers harvesting crops" },
-  { src: gallery2, alt: "Fresh harvested vegetables in wooden crates" },
-  { src: gallery3, alt: "Modern poultry farm interior" },
-  { src: gallery4, alt: "Agricultural team in green field" },
-  { src: gallery5, alt: "Export-grade produce stacked in warehouse" },
-  { src: gallery6, alt: "Cattle grazing on lush green pasture" },
+  { src: gallery1, alt: "Cassava crop field at A.T Farms and Fields, Ogun State" },
+  { src: gallery2, alt: "Hydroponics irrigation system at A.T Farms and Fields" },
+  { src: gallery3, alt: "Poultry production at A.T Farms and Fields" },
+  { src: gallery4, alt: "Livestock care and management at A.T Farms and Fields" },
+  { src: gallery5, alt: "Land preparation with tractors at A.T Farms and Fields" },
+  { src: gallery6, alt: "Vegetable crop production at A.T Farms and Fields" },
+  { src: gallery7, alt: "Capacity building and training session at A.T Farms and Fields" },
+  { src: gallery8, alt: "Young plant seedling in Ogun State farm soil" },
+  { src: gallery9, alt: "Farm worker in cassava field at A.T Farms and Fields" },
+  { src: gallery10, alt: "Tree nursery and forestry seedlings at A.T Farms and Fields" },
 ];
 
 export default function GallerySection() {

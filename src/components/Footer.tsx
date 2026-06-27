@@ -62,7 +62,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <p className="text-sm text-primary-foreground/75">08023726675</p>
+                <a href="tel:+2347088415768" className="text-sm text-primary-foreground/75 hover:text-primary-foreground transition-colors">07088415768</a>
               </li>
               <li>
                 <p className="text-sm text-primary-foreground/75">Ogun State, Nigeria</p>

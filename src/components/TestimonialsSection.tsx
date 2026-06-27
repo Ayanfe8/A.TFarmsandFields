@@ -12,15 +12,15 @@ const testimonials = [
   },
   {
     quote:
-      "As a diaspora investor, I needed a partner I could trust to manage my farm remotely. AT Farms delivers regular reports and has consistently met their targets.",
-    name: "Dr. Ngozi E.",
-    role: "Investor, United Kingdom",
+      "A.T Farms and Fields Limited took over my farm management and the progress has been massive — from production to record keeping and overall accountability.",
+    name: "Mr Abimbola Adegoke",
+    role: "CEO, Sorts Core Farm — United Kingdom",
   },
   {
     quote:
-      "Their export sourcing service helped us access international markets we never thought possible. The quality control and documentation were world-class.",
-    name: "Alhaji Musa K.",
-    role: "Cooperative Lead, Kwara State",
+      "I've been partnering with them for a while in sourcing and sales of livestock, and their transparency has been critical in our relationship.",
+    name: "Baba Kano",
+    role: "Partner — Ogun State, Nigeria",
   },
 ];
 

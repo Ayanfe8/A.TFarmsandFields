@@ -43,17 +43,13 @@ export default function AboutSection() {
               <div className="rounded-lg border-l-4 border-primary bg-secondary p-6">
                 <h3 className="font-heading text-sm font-bold text-foreground uppercase tracking-wide">Mission</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  To provide premium agricultural products through ethical farming
-                  practices while creating economic opportunities and contributing
-                  to food security.
+                  To deliver innovative, proactive, and sustainable agricultural solutions through farm production and management, technology, capacity building, value chain development, and strategic partnerships that enhance productivity, create shared value, and improve food security.
                 </p>
               </div>
               <div className="rounded-lg border-l-4 border-primary bg-secondary p-6">
                 <h3 className="font-heading text-sm font-bold text-foreground uppercase tracking-wide">Vision</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  To become a leading agricultural and livestock enterprise known
-                  for sustainable farming, innovation, and high-quality food
-                  production.
+                  To become Africa's leading agricultural management and development company, creating an enabling environment that transforms agriculture, empowers farmers and investors, drives sustainable innovation, and strengthens food security for generations.
                 </p>
               </div>
             </div>
