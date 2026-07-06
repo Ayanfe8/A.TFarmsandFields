@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden pt-16"
+      className="relative flex min-h-svh items-center overflow-hidden pt-16"
     >
       {/* Background image */}
       <div className="absolute inset-0">
@@ -23,7 +23,7 @@ export default function HeroSection() {
         <div className="absolute inset-0" style={{ background: 'var(--overlay-hero)' }} />
       </div>
 
-      <div className="relative mx-auto max-w-[1200px] px-[clamp(1rem,5vw,2rem)] py-24 md:py-32">
+      <div className="relative mx-auto max-w-[1200px] px-[clamp(1rem,5vw,2rem)] py-16 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function HeroSection() {
           </span>
 
           {/* PRD headline */}
-          <h1 className="mt-4 font-heading font-black leading-tight tracking-tight text-primary-foreground" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
+          <h1 className="mt-4 font-heading font-black leading-tight tracking-tight text-primary-foreground" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
             Building the Future of Nigerian Agriculture
           </h1>
 
