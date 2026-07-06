@@ -1,8 +1,6 @@
 import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 import { MotionConfig } from "framer-motion";
 
-import appCss from "../styles.css?url";
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -40,7 +38,6 @@ export const Route = createRootRoute({
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&display=swap" },
-      { rel: "stylesheet", href: appCss },
     ],
   }),
   component: RootComponent,
