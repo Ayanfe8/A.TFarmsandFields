@@ -5,8 +5,8 @@ import { useCountUp } from "@/hooks/use-count-up";
 const stats = [
   { value: 500, suffix: "+", label: "Farmers & Clients Served" },
   { value: 10, suffix: "+", label: "Years of Experience" },
-  { value: 1000, suffix: "+", label: "Hectares Under Management", format: (n: number) => n.toLocaleString() },
-  { value: 5, suffix: "+", label: "States of Operation" },
+  { value: 50, suffix: "+", label: "Hectares Under Management", format: (n: number) => n.toLocaleString() },
+  { value: 6, suffix: "+", label: "States of Operation" },
 ];
 
 function StatItem({ stat, inView, index }: { stat: typeof stats[number]; inView: boolean; index: number }) {
