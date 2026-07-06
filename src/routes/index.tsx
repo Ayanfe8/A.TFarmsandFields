@@ -5,7 +5,6 @@ import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import StatsBarSection from "@/components/StatsBarSection";
-import FocusAreasSection from "@/components/FocusAreasSection";
 import GallerySection from "@/components/GallerySection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
@@ -48,7 +47,6 @@ function Index() {
       <ServicesSection />
       <WhyChooseUsSection />
       <StatsBarSection />
-      <FocusAreasSection />
       <GallerySection />
       <TestimonialsSection />
       <ContactSection />
